@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('permissons') {
             steps {
-                sh 'chmod 777 /var/jenkins_home/workspace/jenkin-devops-mircroservice1-pipeline@tmp/*/*'
+                sh 'chmod 777 /var/jenkins_home/workspace/*/*/*'
             }
 		}
 		stage('build') {
