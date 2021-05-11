@@ -21,9 +21,10 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				    sh 'docker pull maven:3.8.1'
+				    //sh 'docker pull maven:3.8.1'
                 	echo "Build"
 					sh "maven --version"
+					sh "docker -- version"
 			}
 		}
 		stage('Test') {
