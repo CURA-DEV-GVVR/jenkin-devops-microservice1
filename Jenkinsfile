@@ -28,8 +28,8 @@ pipeline {
 		stage('Build') {
 			steps {
                 	echo "Build"
-					sh 'docker --version'
-					sh 'maven --version'
+					sh 'docker --version	'
+					sh 'mvn --version'
 					echo "PATH - $PATH"
 					echo "BUILD_ID - $env.BUILD_ID"
 					echo "JOB_NAME - $env.JOB_NAME"
