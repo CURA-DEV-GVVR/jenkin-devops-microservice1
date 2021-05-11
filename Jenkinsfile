@@ -39,7 +39,7 @@ pipeline {
 	// 	}
 		stage('Complie') {
 			steps {
-                    sh "mvn clean complie"
+                    sh "mvn compiler:compile"
 			}
 		}
 		stage('Test') {
