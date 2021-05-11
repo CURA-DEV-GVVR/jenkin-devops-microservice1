@@ -10,19 +10,20 @@
 // }
 
 pipeline {
-	//agent any
-	agent { 
-		docker {
-			     //image 'maven:3.8.1'
-				 //args '-u root:root'
-				 image 'node:13.8'
-		} 
-	}
+	agent any
+	// agent { 
+	// 	docker {
+	// 		     image 'maven:3.8.1'
+	// 			 //args '-u root:root'
+	// 			 //image 'node:13.8'
+	// 	} 
+	// }
 	stages {
 		stage('Build') {
 			steps {
+				    sh 'docker pull maven:3.8.1'
                 	echo "Build"
-					sh "node --version"
+					sh "maven --version"
 			}
 		}
 		stage('Test') {
