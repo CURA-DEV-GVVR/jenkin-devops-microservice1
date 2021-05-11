@@ -18,13 +18,19 @@ pipeline {
 	// 			 //image 'node:13.8'
 	// 	} 
 	// }
+	environment {
+		mavenHome = tool "myMaven"
+		dockerHome = tool "myDocker"
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+
+	}
 	stages {
 		stage('Build') {
 			steps {
-				    //sh 'docker pull maven:3.8.1'
                 	echo "Build"
-					//sh "maven --version"
-					echo "$PATH"
+					sh 'docker --versio'
+					sh 'maven --version'
+					echo "PATH - $PATH"
 					echo "BUILD_ID - $env.BUILD_ID"
 					echo "JOB_NAME - $env.JOB_NAME"
 					echo "BUILD_NUMBER - $env.BUILD_NUMBER"
