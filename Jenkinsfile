@@ -10,15 +10,46 @@
 // }
 
 pipeline {
-	agent any
-    stages {
-		stage('build') {
-			agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11' }
-            }
-            steps {
-                bash 'maven --version'
-            }
+	//agent any
+	agent { 
+		docker {
+			     image 'maven:3.8.1'
+				 //args '-u root:root'
+				 //image 'node:13.8'
+		} 
+	}
+	stages {
+		stage('Build') {
+			steps {
+				    //sh 'docker pull maven:3.8.1'
+                	echo "Build"
+					sh "maven --version"
+			}
 		}
-    }
+		stage('Test') {
+			steps {
+                    echo "Test"
+			}
+		}
+		stage('Integration Test') {
+			steps {
+                    echo "Integration Test"
+			}
+		}
+	} 
+	
+	post {
+		always {
+			echo 'I am awesome. I run always'
+		}
+		success {
+			echo 'I ran when you are successful'
+		}
+		failure {
+			echo 'I run when you fail'
+		}
+		//changed,  unstable
+	}
+
+
 }
