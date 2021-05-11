@@ -10,14 +10,16 @@
 // }
 
 pipeline {
-	agent any
-	// agent { 
-	// 	docker {
-	// 		     image 'maven:3.8.1'
-	// 			 //args '-u root:root'
-	// 			 //image 'node:13.8'
-	// 	} 
-	// }
+	 agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 	stages {
 		stage('Build') {
 			steps {
