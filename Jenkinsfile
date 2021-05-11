@@ -14,6 +14,7 @@ pipeline {
 	agent { 
 		docker {
 			     image 'maven:3.8.1'
+				 args '-u root:root'
 		} 
 	}
 	stages {
