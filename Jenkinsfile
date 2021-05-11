@@ -10,7 +10,7 @@
 // }
 
 pipeline {
-	 agent {
+	agent {
         docker { image 'node:14-alpine' }
     }
     stages {
@@ -19,8 +19,7 @@ pipeline {
                 sh 'node --version'
             }
         }
-    }
-	stages {
+    
 		stage('Build') {
 			steps {
 				    //sh 'docker pull maven:3.8.1'
