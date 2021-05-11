@@ -12,17 +12,12 @@
 pipeline {
 	agent any
     stages {
-        stage('permissons') {
-            steps {
-                sh 'chmod 777 /var/jenkins_home/workspace/*/*/*'
-            }
-		}
 		stage('build') {
 			agent {
                 docker { image 'maven:3.8.1-adoptopenjdk-11' }
             }
             steps {
-                sh 'maven --version'
+                bash 'maven --version'
             }
 		}
     }
