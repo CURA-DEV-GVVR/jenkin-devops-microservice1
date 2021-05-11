@@ -69,7 +69,7 @@ pipeline {
             steps {
 				script {
 					echo "Hello World"
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                    docker.withRegistry('', 'dockerhub') {
 					echo "Hello World"
 					dockerImage.push();
 					dockerImage.push('latest');
