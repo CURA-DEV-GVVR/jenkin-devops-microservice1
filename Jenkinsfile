@@ -10,13 +10,19 @@
 // }
 
 pipeline {
-	agent {
-       dockerfile true 
-    }
+	agent any
     stages {
-        stage('Test') {
+        stage('permissons') {
             steps {
-                sh 'node --version'
+                sh 'chmod 777 /var/jenkins_home/workspace/jenkin-devops-mircroservice1-pipeline@tmp/*/*'
+            }
+		}
+		stage('build') {
+			agent {
+                docker { image 'maven:3.8.1-adoptopenjdk-11' }
+            }
+            steps {
+                sh 'maven --version'
             }
 		}
     }
